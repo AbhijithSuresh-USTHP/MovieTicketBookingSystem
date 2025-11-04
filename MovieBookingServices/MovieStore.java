@@ -43,6 +43,7 @@ public class MovieStore extends Addshow{
             System.out.println(" No movies available.");
         } else {
             System.out.println(" Movie List:");
+			System.out.println("MovieID|Movie Name|Genre|Language|Duration");
             
             for (Movie movie : movieSet) {
                 System.out.println( movie.Movie_display());
