@@ -1,0 +1,47 @@
+
+The system is standalone and modular, consisting of multiple management modules such as:
+
+1)Movie Management
+2)Showtime Management
+3)Customer Management
+4)Ticket Booking
+5)Booking History
+
+All modules are interrelated and share common data (like `movieId` and `showId`).
+
+Product Functions
+
+1. **Movie Management
+
+   * Add new movies
+   * View all movies
+   * Each movie has: `movieId`, `title`, `genre`, `duration`, `language`
+
+2. Showtime Management
+
+   * Add showtimes for movies
+   * View all showtimes
+   * Each showtime has: `showId`, `movieId`, `date`, `time`
+
+3. Customer Management
+
+   * Add customer details
+   * View customer list
+   * Each customer has: `customerId`, `name`, `email`, `phone`
+
+4. Ticket Booking
+
+   * Book tickets for a specific customer and showtime
+   * View all booked tickets
+   * Each ticket has: `ticketId`, `customerId`, `showId`, `numberOfSeats`
+
+5. Booking History
+   * View all past bookings by a customer
+
+
+Conclusion
+
+This SRS outlines the requirements and functionality of the Movie Ticket Booking System
+The system simplifies movie and ticket management using modular, object-oriented design.
+It can later be extended with database integration and a graphical interface.
+
