@@ -37,11 +37,3 @@ Product Functions
 
 5. Booking History
    * View all past bookings by a customer
-
-
-Conclusion
-
-This SRS outlines the requirements and functionality of the Movie Ticket Booking System
-The system simplifies movie and ticket management using modular, object-oriented design.
-It can later be extended with database integration and a graphical interface.
-
