@@ -33,7 +33,7 @@ public class Movie {
 
 
 	    public String Movie_display() {
-	        return  movieId  + "  " +  movieName + " " +  genre  +" "+  language + " " +  duration  ;
+	        return  movieId  + "|" +  movieName + "|" +  genre  +"|"+  language + "|" +  duration  ;
 	    }
 	}
 
