@@ -1,6 +1,7 @@
 Movie Ticket Booking System Using Java Collections.
 
 Team Members:
+
 1)Abhijith Suresh(Team Lead)- Ticket Booking module and Integration of the modules
 
 2)Dona Binu- Customer Purchase History module and Main Menu module
