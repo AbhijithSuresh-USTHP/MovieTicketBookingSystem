@@ -30,7 +30,7 @@ public class BookingHistory {
 				if(custId.equalsIgnoreCase(t.getcid())) {
 					int numberOfSeats = t.getseat();
 
-					for(Showtime s: Addshow.show) {
+					for(Showtime s: ShowTime.show) {
 						if(t.getshowid().equalsIgnoreCase(s.getsid())) {
 							String showTime = s.gettiem();
 							
