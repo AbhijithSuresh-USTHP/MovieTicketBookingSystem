@@ -1,63 +1,99 @@
-package MovieBookingServices;
-import java.util.ArrayList;
-import java.util.List;
+package TicketBookingMenu;
 import java.util.Scanner;
 
-import MovieEntity.BookingInfo;
-import MovieEntity.Customer;
-import MovieEntity.Movie;
-import MovieEntity.Showtime;
-import MovieEntity.ticket;
-
-public class BookingHistory {
+import MovieBookingServices.*;
+public class UI {
 	static Scanner sc = new Scanner(System.in);
-	static List<BookingInfo> history = new ArrayList<BookingInfo>();
-	
-	public static void viewBookingHistory(){
-		System.out.println("Enter the customer id: ");
-		String custId = sc.next();
-		
-		boolean customerExists = false;
-	    for (Customer c : customer_management.customers) {
-	        if (custId.equalsIgnoreCase(c.getCustomerId())) {
-	            customerExists = true;
-	            break;
-	        }
-	    }
+	public static void main(String[] args) {
+		while(true) {
+		System.out.println("For Admin interfance: type password\nFor user interface enter user\nEnter exit to exit");
+		String adminpass=sc.nextLine();
+		if(adminpass.equals("confidential"))
+		{
+			System.out.println("Welcome to the admin interface");
+		while(true) {
+		System.out.println("\nEnter your choice:\n1.Add customer\n2.View customers\n3.Remove customers\n4.Add movies\n5.View movies\n6.Remove movies\n7.View all the tickets that has been purchased(Admin Option)\n8.Exit");
+		int ch = sc.nextInt();
+		sc.nextLine();
+		switch(ch) {
+		case 1:{
+			customer_management.addcustomer();
+			break;
+		}
+		case 2:{
+			customer_management.viewcustomer();
+			break;
+		}
+		case 3:{
+            customer_management.removecustomer();
+			break;
+		}
+		case 4:{
+			MovieStore.addMovie();
+			break;
+		}
+		case 5:{
+			MovieStore.viewMovies();
+			break;
+		}
+		case 6:{
+			MovieStore.removeMovies();
+			break;
+		}
+		case 7: {
+			BookTicket.showtickets();;
+			break;
+		}
+		case 8:{
+			System.out.println("Exiting, Bye");
+			break;
+		}
+		default:{
+			System.out.println("Invalid input");
+			break;
+		}
 
-	    if(customerExists) {
-	    	for(ticket t: BookTicket.Tickets) {
-				if(custId.equalsIgnoreCase(t.getcid())) {
-					int numberOfSeats = t.getseat();
+	}if (ch==8) break;
 
-					for(Showtime s: ShowTime.show) {
-						if(t.getshowid().equalsIgnoreCase(s.getsid())) {
-							String showTime = s.gettiem();
-							
-							for(Movie m: MovieStore.movieSet) {
-								if(s.getmid().equalsIgnoreCase(m.getMovieId())) {
-									String movieName = m.getMovieName();
-									history.add(new BookingInfo(movieName, showTime, numberOfSeats ));
-								}
-							}
-						}
-					}				
+}
+		}
+		else if (adminpass.equalsIgnoreCase("user")) {
+			System.out.println("Welcome to the user interface");
+			while(true) {
+				System.out.println("\nEnter your choice:\n1.Book tickets\n2.View booking history\n3.Exit");
+				int ch = sc.nextInt();
+				sc.nextLine();
+				switch(ch) {
+				case 1:{
+					BookTicket.bookticket();;
+					break;
 				}
-			}
-			if(history.isEmpty()) {
-				System.out.println("No bookings to show");
-			}
-			else {
-				for(BookingInfo b: history) {
-					System.out.println("Movie name: " + b.movieName + ", Show time: " + b.showTime + ", Number of Seats: " + b.numberOfSeats);
+				case 2: {
+					BookingHistory.viewBookingHistory();
+					break;
 				}
-				history.clear();
+				case 3:{
+					System.out.println("Exiting, Bye");
+					break;
+				}
+				default:{
+					System.out.println("Invalid input");
+					break;
+				}
+
 			}
-	    }
-	    else {
-	    	System.out.println("Customer doesn't exist");
-	    }
+				if(ch==3) break;
+
+		}
+		}
+		else if(adminpass.equalsIgnoreCase("exit")) {
+			System.out.println("Thank you for using our system.Bye!");
+			System.exit(0);
+		}
+		else {
+			System.out.println("Invalid Input");
+		}
 		
-		
+		}
 	}
 }
