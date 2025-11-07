@@ -72,7 +72,6 @@ public static void bookticket() {
 		System.out.println("Successfully Booked "+seat+" tickets for the movie "+moviename+" for the show on "+selectedshow.getdate()+" at "+selectedshow.gettiem());
 	}
 	Tickets.add(new ticket(cid,m_id,s_id,seat));
-	sc.nextLine();
 	
 }
 public static void showtickets() {
